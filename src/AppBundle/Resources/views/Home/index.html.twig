@@ -9,6 +9,9 @@
 {% block content %}
 
     <main class="container">
+        <div id="fb-root"></div>
+
+        <div class="fb-login-button" data-width="500" data-max-rows="2" data-size="medium" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="true"></div>
         <section id="about-me">
             <div class="row">
                 <div class="col-md-8">
@@ -108,67 +111,59 @@
 
         <div class="row">
             <div class="col-md-6 col-xs-12">
+                <form id="captcha-form" action="#captcha-form" method="post">
                     <h1 class="section-title">Turite klausimų? Susisiekite!</h1>
-                    {#<div class="row">#}
-                {#'action': path('#captcha-form'),#}
-                    {{ form_start(form, { 'id': 'captcha-form'}) }}
+
                     <div class="row">
+                        {{ form_row(form._token) }}
                         {{ form_widget(form.name, { 'attr': {'class': 'col-md-6 form-group', 'name': 'client_name', 'placeholder': 'Jūsų vardas'} }) }}
-                        {{ form_errors(form.name) }}
                         {{ form_widget(form.phone, { 'attr': {'class': 'col-md-5 form-group float-right phone', 'name': 'client_phone','placeholder': 'Telefono numeris'} }) }}
-                        {{ form_errors(form.phone) }}
                     </div>
 
                     <div class="row">
                         {{ form_widget(form.email, { 'attr': {'class': 'col-sm-12 form-group', 'name': 'client_email', 'placeholder': 'Jūsų el. paštas'} }) }}
-                        {{ form_errors(form.email) }}
                     </div>
-                <div class="row">
+                    <div class="row">
 
-                </div>
+                    </div>
                     <div class="row">
                         <label>Papildoma informacija ir pageidavimai</label>
                         {{ form_widget(form.message, { 'attr': {'class': 'col-sm-12 form-group', 'name': 'information', 'placeholder': 'Galite nurodyti objekto tipą (namas, butas, sandelys, ofisas, lauko teritorija), kambarių/patalpų skaičių.'} }) }}
-                        {{ form_errors(form.message) }}
                     </div>
-                {{ form_errors(form) }}
-                {% if not form.vars.valid %}
-                    <ul>
+                    {{ form_errors(form) }}
+                    {% if form.vars.valid and form.vars.submitted %}
+                        <p class="lead">Jūsų užklausa išsiųsta</p>
+                    {% endif %}
+                    {% if not form.vars.valid %}
                         {# Loop through every form item #}
                         {% for child in form.children %}
                             {# Display the errors of the form item #}
-                            {%for error in child.vars.errors%}
-                                <li>{{ "Neteisingia įvesti duomenys" }}</li>
-                            {%endfor%}
-                        {%endfor%}
-                    </ul>
-                    {% else %}
-                    <p class="lead">Jūsų užklausa išsiųsta</p>
-                {%endif%}
+                            {% for error in child.vars.errors %}
+                                <p>{{ "Neteisingia įvesti duomenys" }}</p>
+                            {% endfor %}
+                        {% endfor %}
+                    {% endif %}
 
-
-                <div class="form-group">
-                    <div class="g-recaptcha"
-                         data-sitekey="<?= CAPTCHA_SITE_KEY ?>"
-                         data-size="invisible"
-                         data-callback="onSubmit">
+                    <div class="form-group">
+                        <div class="g-recaptcha"
+                             data-sitekey="<?= CAPTCHA_SITE_KEY ?>"
+                             data-size="invisible"
+                             data-callback="onSubmit">
+                        </div>
+                        <button type="submit" class="btn btn-lg submit-button">Siųsti</button>
+                        {#{% if (isset(errRecaptcha)) { %}#}
+                        {#{%  errRecaptcha; } %}#}
                     </div>
-                <button type="submit" class="btn btn-lg submit-button">Siųsti</button>
-                    {#{% if (isset(errRecaptcha)) { %}#}
-                    {#{%  errRecaptcha; } %}#}
-
-                {{ form_end(form) }}
-                </div>
-
+                </form>
             </div>
 
-            <div class="col-md-6 col-xs-12">
-                <h1 class="section-title text-center">Kontaktai</h1>
-                <p class="contact ml-5"><i class="fa fa-user" aria-hidden="true"></i>Sergey Kruglov</p>
-                <p class="contact ml-5"><i class="fa fa-phone-square" aria-hidden="true"></i>+370 628 63546</p>
-                <p class="contact ml-5"><i class="fa fa-envelope" aria-hidden="true"></i>sergej.kruglov@gmail.com</p>
+        <div class="col-md-6 col-xs-12">
+            <h1 class="section-title text-center">Kontaktai</h1>
+            <p class="contact ml-5"><i class="fa fa-user" aria-hidden="true"></i>Sergey Kruglov</p>
+            <p class="contact ml-5"><i class="fa fa-phone-square" aria-hidden="true"></i>+370 628 63546</p>
+            <p class="contact ml-5"><i class="fa fa-envelope" aria-hidden="true"></i>sergej.kruglov@gmail.com</p>
 
-            </div>
+        </div>
         </div>
         </div>
 

@@ -10,6 +10,8 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Validator\Constraints\Regex;
 
 
@@ -48,20 +50,17 @@ class HomeController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
 
             $data = $form->getData();
-//
+
             $message = (new \Swift_Message('Hello Email'))
                 ->setFrom($data['email'])
                 ->setTo('some@email.com')
                 ->setBody(
                     $form->getData()['message'],
                     'text/html'
-                )
-                ;
-                   $this->get('mailer')->send($message);
+                );
+            $this->get('mailer')->send($message);
         }
-        $errors = $form->getErrors();
 
         return $this->render('AppBundle:Home:index.html.twig', ['form' => $form->createView()]);
-
     }
 }
