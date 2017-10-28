@@ -1,0 +1,309 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}Homepage - {{ parent() }}{% endblock %}
+{% block content %}
+
+
+<main class="container">
+    <h2 class="text-center">Apsauga nuo užpuolimo</h2>
+    <div class="row" id="attack">
+        <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
+
+            <p class="lead">
+                Galimybė iškviesti ginkluotus apsaugos darbuotojus į namus arba darbo vietą:
+            </p>
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="">
+                        <li>
+                            <i class="fa fa-check"></i>Autonominis nešiojamųjų mygtukų komplektas
+                        </li>
+                        <li class="price text-center">Kaina: <i>2 vnt. su įrengimu nuo 170€</i></li>
+                        <li>
+                            <i class="fa fa-check"></i>Nešiojamųjų mygtukų komplektas turintiems apsaugos
+                            signalizaciją
+                        </li>
+                        <li class="price text-center">Kaina: <i>2 vnt. su įrengimu nuo 80€</i></li>
+
+                        <li class="features">
+                            <i class="fa fa-check"></i>Autonominis stacionarus mygtukas
+                        </li>
+                        <li class="price text-center">Kaina: <i>1 vnt. su įrengimu nuo 150€</i></li>
+
+                        <li class="features">
+                            <i class="fa fa-check"></i>Stacionarus mygtukas turintiems apsaugos signalizaciją
+                        </li>
+                        <li class="price text-center">Kaina: <i> 1vnt. su įrengimu nuo 70€<br>
+                                Papildomas mygtukas nuo15€</i></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
+            <img src="{{ '/images/rage.jpg' }}" class="rounded float-right" width="500">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="mx-auto alert alert-info">
+            <ul><strong>Informacija:</strong>
+                <li>Paspaudus užpuolimo mygtuką sirenos nekaukia, todėl žpuolikas nežino, jog jau važiuoja
+                    apsauga.
+                </li>
+                <li>Netyčia paspaudus užpuolimo mygtuką, atšaukti apsaugos atvykimo negalima.</li>
+            </ul>
+        </div>
+    </div>
+    <hr>
+
+    <h2 class="text-center">Apsauga nuo įsilaužimo</h2>
+    <div class="row" id="break-in">
+        <div class="col-md-7">
+            <img src="{{ '/images/thief.jpg' }}" class="rounded float-right" width="500">
+        </div>
+        <div class="col-md-5 col-xs-12">
+
+            <p class="lead">Išvykstate atostogų, reikalinga turto apsauga;</p>
+            <br/>
+            <p class="lead">Esate darbe/ svečiuose ir t.t. reikalinga turto apsauga</p>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-md-4">
+            <ul>
+                <li class="title">
+                    <h4>Bazinė signalizacija</h4>
+                </li>
+                <li class="features">
+                    <i class="fa fa-check"></i>Įėjimo durų/ vartų jutikliai ir judesio jutikliai
+                </li>
+                <li class="price text-center">Kaina: <i>± 15 m2 su įrengimu nuo 200€<br>
+                        ± 40 m2 su įrengimu nuo 300- 340€<br>
+                        ± 80 m2 su įrengimu nuo 350- 400€<br>
+                        ± 200 m2 su įrengimu nuo 560- 650€</i>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <ul>
+                <li class="title">
+                    <h4>Aukšto lygio signalizacija</h4>
+                </li>
+                <li class="features">
+                    <i class="fa fa-check"></i>Visų pirmo aukšto durų, vartų ir langų jutikliai
+                </li>
+                <li class="features">
+                    <i class="fa fa-check"></i>Visų aukštų patalpų judesio jutikliai
+                </li>
+                <li class="features">
+                    <i class="fa fa-check"></i>Gaisro jutikliai patalpuose su padidinta gaisro rizika
+                </li>
+                <li class="price text-center">Kaina: <i>1 vnt. su įrengimu nuo 150€</i></li>
+
+                <li class="features">
+                    <i class="fa fa-check"></i>Stacionarus mygtukas turintiems apsaugos signalizaciją
+                </li>
+                <li class="price text-center">Kaina: <i>± 15 m2 su įrengimu nuo 250€<br>
+                        ± 40 m2 su įrengimu nuo 380- 450€<br>
+                        ± 80 m2 su įrengimu nuo 550- 610€<br>
+                        ± 200 m2 su įrengimu nuo 770- 930€</i></li>
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <ul>
+                <li class="title">
+                    <h4>Labai aukšto lygio signalizacija</h4>
+                </li>
+                <li class="features">
+                    <i class="fa fa-check"></i>Visų vartų, durų ir langų jutikliai
+                </li>
+                <li class="features">
+                    <i class="fa fa-check"></i>Visų patalpų judesio, stiklo dūžio, vibro, mikrobangų jutikliai
+                </li>
+                <li class="features">
+                    <i class="fa fa-check"></i>Dujų nuotekio, dumų, tepmeratūros, vandens nuotekio jutikliai
+                    patalpuose su atitinkama rizika
+                </li>
+                <li class="price text-center">Kaina: <i> ± 200 m2 su įrengimu nuo 1200€<br>
+                        nuo 250 m2 su įrengimu nuo 1200€</i>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <hr>
+
+    <h2 class="text-center">Įrenginių valdymas išmaniuoju telefonu</h2>
+    <div class="row" id="mobile">
+        <div class="col-md-5 col-xs-12">
+            <p class="lead">Automatinių vartų atidarymas/ uždarymas trumpu skambučiu arba išmaniojo
+                telefono programa;
+            </p>
+            <p class="lead">Apsaugos signalizacijos įjungimas/ išjungimas trumpu skambučiu arba
+                išmaniojo telefono programa;</p>
+            <p class="lead">Kompjuterio, katilo, šviesos įjungimas /išjungimas trumpu skambučiu arba
+                išmaniojo telefono programa;</p>
+            <p class="lead">Iš anksto įrengtų dujų arba vandens atjungimo relės aktyvavimas trumpu
+                skambučiu arba išmaniojo telefono programa;
+            </p>
+            <ul>
+                <li class="features">
+                    <i class="fa fa-check"></i>Autonominis valdymo modulis 8 įrenginiams
+                </li>
+                <li class="price text-center">Kaina: <i>Su įrengimu nuo 220 - 900€</i></li>
+                <li class="features">
+                    <i class="fa fa-check"></i>Aukšto lygio signalizacija su valdymo moduliu 8 įrenginiams
+                    (dujų; vandens atjungimo; rozečių/šviesos)
+                </li>
+                <li class="price text-center">Kaina: <i>Su įrengimu ± 200 m2 nuo 1500€;<br>
+                        Su įrengimu virš 250m2 nuo 2500€</i></li>
+
+                <li class="features">
+                    <i class="fa fa-check"></i> Modulio esamai signalizacijai valdyti įrengimas
+                </li>
+                <li class="price text-center">Kaina: <i>nuo170€</i></li>
+            </ul>
+        </div>
+        <div class="col-md-7">
+            <img src="{{ '/images/smart-home.png' }}" class="rounded float-right" width="500">
+        </div>
+        <hr>
+    </div>
+    <hr>
+    <div class="row" id="camera">
+        <h2 class="text-center">Kompleksinė lauko teritorijos apsauga</h2>
+        <div class="row paslauga">
+            <div class="col-md-7">
+                <img src="{{ '/images/kamera.jpg' }}" class="rounded float-left" width="500">
+            </div>
+            <div class="col-md-5">
+                <ul>
+                    <h3 class="text-center">Užduotis</h3>
+                    <li>Reikalinga turto apsauga esančio teritorijoje aptverta tvora</li>
+                </ul>
+                <ul>
+                    <h3 class="text-center">Sprendimai</h3>
+
+                    <li>Lauko judesio jutikliai ant tvoros su vaizdo kameromis teritorijos viduje</li>
+                    <li>Lauko judesio jutikliai ant tvoros su valdoma/ -momis kameromis teritorijos viduje</li>
+                    <li>Lauko judesio jutikliai teritorijos viduje (galima ant stulpu) su vaizdo kameromis
+                        teritorijos viduje
+                    </li>
+                    <li>Lauko judesio jutikliai teritorijos viduje (galima ant stulpu) su valdoma/ -momis
+                        kameromis
+                        teritorijos viduje
+                    </li>
+                    <li>Lauko barjerai išilgai vidinės pusės tvoros su kameromis teritorijos viduje</li>
+                    <li>Lauko barjerai išilgai vidinės pusės tvoros su valdoma/ -momis kameromis teritorijos
+                        viduje
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-12 alert alert-info">
+                <ul><strong>Informacija:</strong>
+                    <li> Reagavimą ir vaizdo stebėjimą geriausia perduoti saugos tarnybai (profesionalams).</li>
+                    <li>Įrengus lauko judėsio jutiklius arba lauko barjerus be vaizdo kamerų, saugos tarnybos
+                        garantuoti visiško saugumo negalės.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+
+        <h2 class="text-center">Nelaimingų atsitikimų prevencija</h2>
+        <div class="row">
+            <div class="col-md-5">
+                <ul>
+                    <h3 class="text-center">Užduotis</h3>
+                    <li>Apsaugoti savo turtą nuo nelaimingų atsitikimų</li>
+
+                    <li class="list-group-item features">
+                        <i class="fa fa-check"></i>Gaisro signalizacija sandeliui
+                    </li>
+                    <li class="list-group-item price text-center">Kaina: <i>± 100 m2 su įrengimu nuo 500 - 800€</i>
+                    </li>
+                    <li class="list-group-item features">
+                        <i class="fa fa-check"></i>Gaisro signalizacija su dujų nuotekio, vandens nuotekio, dūmų
+                        nuotekio jutikliais
+                    </li>
+                    <li class="list-group-item price text-center">Kaina: <i>± 100 m2 su įrengimu nuo 900€</i></li>
+                    <li class="list-group-item description">
+                        <h4>Labai aukšto lygio signalizacija:</h4>
+                    </li>
+                    <li class="list-group-item features">
+                        <i class="fa fa-check"></i>Visų vartų, durų ir langų jutikliai
+                    </li>
+                    <li class="list-group-item features">
+                        <i class="fa fa-check"></i>Visų patalpų judesio, stiklo dūžio, vibro, mikrobangų jutikliai
+                    </li>
+                    <li class="list-group-item features">
+                        <i class="fa fa-check"></i>Dujų nuotekio, dumų, tepmeratūros, vandens nuotekio jutikliai
+                        patalpuose su atitinkama rizika
+                    </li>
+                    <li class="list-group-item price text-center">Kaina: <i>± 200 m2 su įrengimu nuo 1200€;<br>
+                            nuo 250 m2 su įrengimu nuo 1200€</i></li>
+
+                </ul>
+            </div>
+            <div class="col-md-7">
+                <img src="{{ '/images/oven-light.jpg' }}" class="rounded float-right" width="500">
+            </div>
+        </div>
+        <hr>
+    </div>
+
+    <hr>
+    <h2 class="text-center">Vizualinis objekto stebėjimas</h2>
+    <div class="row" id="watch">
+        <div class="col-md-7 col-sm-12">
+            <img src="{{ '/images/' }}" class="rounded float-left" width="500">
+
+        </div>
+        <div class="col-md-5 col-sm-12">
+            <ul>
+                <h3 class="text-center">Užduotys</h3>
+                <li>Pašalinių žmonių ar jų neteisėtų veiksmų registravimas</li>
+                <li>Teritoriją aplankančių automobilių registravimas</li>
+            </ul>
+            <ul>
+                <h3 class="text-center">Sprendimai</h3>
+                <li>Vidaus kameros</li>
+                <li>Vidaus kameros su nakties režimu</li>
+                <li>Slaptos vidaus kameros</li>
+                <li>Slaptos vidaus kameros su nakties režimu</li>
+                <li>Lauko kameros su nakties režimu</li>
+                <li>Valdomos lauko kameros su sekimo funkcija ir nakties režimu</li>
+            </ul>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-12 alert alert-info">
+            <ul><strong>Informacija:</strong>
+                <li>Vaizdo įrašai saugomi nuo 1 iki 9 mėn., priklausomai nuo kietojo disko talpos.</li>
+                <li>Vaizdo kameras galima valdyti per kompiuterį, planšetę arba išmanųjį telefoną.</li>
+            </ul>
+        </div>
+    </div>
+    <hr>
+
+    <h2 class="text-center">Domofonai</h2>
+    <div class="row">
+        <div class="col-md-4">
+
+
+        </div>
+    </div>
+
+
+
+
+</main>
+
+{% endblock %}

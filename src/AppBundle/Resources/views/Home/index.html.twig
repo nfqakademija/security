@@ -1,0 +1,177 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}Homepage - {{ parent() }}{% endblock %}
+
+{#{%   if not (verifyCaptcha($_POST["g-recaptcha-response"])) { %}#}
+{#{% formValid = false %}#}
+{#{% errRecaptcha = "reCaptcha sako, kad Jus esate robotas :)"} %}#}
+
+{% block content %}
+
+    <main class="container">
+        <section id="about-me">
+            <div class="row">
+                <div class="col-md-8">
+                    <h1 class="text-center section-title">Patirtis</h1>
+                    <p class="lead">Sveiki! Siūlau Jums profesionalias apsaugos ir stebėjimo sistemų montavimo ir
+                        aptarnavimo
+                        paslaugas.
+                        Šioje srityje dirbu nuo 2006-ųjų metų. Tikiu, kad sukaupta patirtis leis rasti optimalų
+                        sprendimą,
+                        atitinkantį Jūsų poreikius ir galimybes.</p>
+                    <h1 class="text-center section-title">Patikimumas</h1>
+                    <p class="lead">Visą montuojamą įrangą perku iš patikrintų tiekėjų ir jai yra teikiama gamintojo
+                        garantija.</p>
+                    <p class="lead">Užpildykite žemiau esančią <a href="#captcha-form">susisiekimo formą</a>, ir aš
+                        susisieksiu su
+                        Jumis artimiausiu metu.</p>
+                </div>
+                <div class="col-md-4">
+                    <img class="img portrait float-right" src="{{ '/images/portrait.jpg' }}" alt="Mano nuotrauka">
+                </div>
+            </div>
+        </section>
+
+
+        <section id="pricing-tables">
+            <h1 class="section-title text-center">Paslaugos</h1>
+            <div class="row">
+                <div class="col-with-padding-top col-lg-4 col-md-6 col-xs-12">
+                    <ul class="list-group">
+                        <li class="list-group-item name"><h3>Apsauga nuo užpuolimo</h3></li>
+                        <li class="list-group-item description">
+                            Galimybė iškviesti ginkluotus apsaugos darbuotojus į namus arba darbo vietą:
+                        </li>
+                        <li class="list-group-item features">
+                            <i class="fa fa-check"></i>Stacionarus užpuolimo mygtukas arba mygtukų komplektas<br>
+                            <i class="fa fa-check"></i>Stacionarus užpuolimo pedalas<br>
+                            <i class="fa fa-check"></i>Nešiojamas bevielis užpuolimo mygtukas<br>
+                            <a class="link-to-services pull-right" href="paslaugos.php#attack">Plačiau<i
+                                        class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                        </li>
+                        <li class="list-group-item price text-center">Kaina: <i>nuo 70 Eur</i></li>
+                        <li class="list-group-item text-center">
+                            <img src="{{ '/images/1.jpg' }}" class="img img-fluid text-center small-image">
+                            <img src="{{ '/images/2.jpg' }}" class="img img-fluid text-center small-image">
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-with-padding-top col-lg-4 col-md-6 col-xs-12">
+                    <ul class="list-group">
+                        <li class="list-group-item name"><h3>Apsauga nuo įsilaužimo</h3></li>
+                        <li class="list-group-item description">
+                            Išvykstate atostogų, reikalinga turto apsauga:
+                        </li>
+                        <li class="list-group-item features">
+                            <i class="fa fa-check"></i>Vidaus judesio jutikliai<br>
+                            <i class="fa fa-check"></i>Mikrobanginiai judesio jutikliai<br>
+                            <i class="fa fa-check"></i>Stiklo dūžio jutikliai<br>
+                            <i class="fa fa-check"></i>Langų/ durų atidarymo jutikliai<br>
+                            <i class="fa fa-check"></i>Smūgio/ vibro jutikliai<br>
+                            <a class="link-to-services pull-right" href="paslaugos.php#break-in">Plačiau<i
+                                        class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                        </li>
+                        <li class="list-group-item price text-center">Kaina: <i>nuo 200 Eur</i></li>
+                        <li class="list-group-item text-center">
+                            <img src="{{ '/images/8.jpg' }}" class="img img-fluid one-small-image">
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-with-padding-top col-lg-4 col-md-6 col-xs-12">
+                    <ul class="list-group">
+                        <li class="list-group-item name"><h3>Objekto stebėjimas</h3></li>
+                        <li class="list-group-item description">
+                            Pašalinių žmonių ar jų neteisėtų veiksmų registravimas:
+                        </li>
+                        <li class="list-group-item features">
+                            <i class="fa fa-check"></i>Vidaus kameros<br>
+                            <i class="fa fa-check"></i>Slaptos vidaus kameros<br>
+                            <i class="fa fa-check"></i>Lauko kameros<br>
+                            <i class="fa fa-check"></i>Valdomos lauko kameros su sekimo funkcija ir nakties režimu<br>
+                            <a class="link-to-services pull-right" href="paslaugos.php">Plačiau<i
+                                        class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                        </li>
+                        <li class="list-group-item price text-center"> Kaina: <i>nuo 600 Eur</i></li>
+                        <li class="list-group-item text-center">
+                            <img src="{{ '/images/3.jpg' }}" class="img img-fluid small-image">
+                            <img src="{{ '/images/4.jpg' }}" class="img img-fluid small-image">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row pull-right">
+                <div class="col-md-12 link-to-other-services">
+                    <a href="paslaugos.php">Kitos paslaugos</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="row">
+            <div class="col-md-6 col-xs-12">
+                    <h1 class="section-title">Turite klausimų? Susisiekite!</h1>
+                    {#<div class="row">#}
+                {#'action': path('#captcha-form'),#}
+                    {{ form_start(form, { 'id': 'captcha-form'}) }}
+                    <div class="row">
+                        {{ form_widget(form.name, { 'attr': {'class': 'col-md-6 form-group', 'name': 'client_name', 'placeholder': 'Jūsų vardas'} }) }}
+                        {{ form_errors(form.name) }}
+                        {{ form_widget(form.phone, { 'attr': {'class': 'col-md-5 form-group float-right phone', 'name': 'client_phone','placeholder': 'Telefono numeris'} }) }}
+                        {{ form_errors(form.phone) }}
+                    </div>
+
+                    <div class="row">
+                        {{ form_widget(form.email, { 'attr': {'class': 'col-sm-12 form-group', 'name': 'client_email', 'placeholder': 'Jūsų el. paštas'} }) }}
+                        {{ form_errors(form.email) }}
+                    </div>
+                <div class="row">
+
+                </div>
+                    <div class="row">
+                        <label>Papildoma informacija ir pageidavimai</label>
+                        {{ form_widget(form.message, { 'attr': {'class': 'col-sm-12 form-group', 'name': 'information', 'placeholder': 'Galite nurodyti objekto tipą (namas, butas, sandelys, ofisas, lauko teritorija), kambarių/patalpų skaičių.'} }) }}
+                        {{ form_errors(form.message) }}
+                    </div>
+                {{ form_errors(form) }}
+                {% if not form.vars.valid %}
+                    <ul>
+                        {# Loop through every form item #}
+                        {% for child in form.children %}
+                            {# Display the errors of the form item #}
+                            {%for error in child.vars.errors%}
+                                <li>{{ "Neteisingia įvesti duomenys" }}</li>
+                            {%endfor%}
+                        {%endfor%}
+                    </ul>
+                    {% else %}
+                    <p class="lead">Jūsų užklausa išsiųsta</p>
+                {%endif%}
+
+
+                <div class="form-group">
+                    <div class="g-recaptcha"
+                         data-sitekey="<?= CAPTCHA_SITE_KEY ?>"
+                         data-size="invisible"
+                         data-callback="onSubmit">
+                    </div>
+                <button type="submit" class="btn btn-lg submit-button">Siųsti</button>
+                    {#{% if (isset(errRecaptcha)) { %}#}
+                    {#{%  errRecaptcha; } %}#}
+
+                {{ form_end(form) }}
+                </div>
+
+            </div>
+
+            <div class="col-md-6 col-xs-12">
+                <h1 class="section-title text-center">Kontaktai</h1>
+                <p class="contact ml-5"><i class="fa fa-user" aria-hidden="true"></i>Sergey Kruglov</p>
+                <p class="contact ml-5"><i class="fa fa-phone-square" aria-hidden="true"></i>+370 628 63546</p>
+                <p class="contact ml-5"><i class="fa fa-envelope" aria-hidden="true"></i>sergej.kruglov@gmail.com</p>
+
+            </div>
+        </div>
+        </div>
+
+    </main>
+
+{% endblock %}

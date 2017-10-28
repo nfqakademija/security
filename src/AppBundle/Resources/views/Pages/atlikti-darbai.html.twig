@@ -1,0 +1,107 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}Homepage - {{ parent() }}{% endblock %}
+{% block content %}
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-md-2 tab">
+            <button class="tablinks active" onclick="openTab(event, '#sirenos')">Sirenos</button>
+            <button class="tablinks" onclick="openTab(event, '#klaviaturos')">Klaviatūros</button>
+            <button class="tablinks" onclick="openTab(event, '#judesio-jutikliai')">Judėsio jutikliai</button>
+            <button class="tablinks" onclick="openTab(event, '#langu-ir-duru-jutikliai')">Langų ir durų jutikliai
+            </button>
+            <button class="tablinks" onclick="openTab(event, '#centrales')">Centralės</button>
+            <button class="tablinks" onclick="openTab(event, '#gaisro-jutikliai')">Gaisro jutikliai</button>
+            <button class="tablinks" onclick="openTab(event, '#lauko-jutikliai')">Lauko jutikliai</button>
+            <button class="tablinks" onclick="openTab(event, '#vaizdo-kameros')">Vaizdo kameros</button>
+            <button class="tablinks" onclick="openTab(event, '#irasymo-irenginiai')">Įrašymo įrenginiai</button>
+            <button class="tablinks" onclick="openTab(event, '#domofonai')">Domofonai</button>
+            <button class="tablinks" onclick="openTab(event, '#aptarnavimo-darbai')">Aptarnavimo darbai</button>
+        </div>
+
+        <div id="sirenos" class="col-md-10 tabcontent gallery-container active">
+            <h3 class="page-description text-center">Sirenos</h3>
+            <div class="tz-gallery">
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <a class="lightbox" href="{{ '/images/01Sirenos/01-lauko-sirena-mr100-1.jpg' }}">
+                                <img src="{{ '/images/01Sirenos/01-lauko-sirena-mr100-1.jpg' }}"
+                                     class="rounded img-fluid" alt="MR-100 standartinė lauko sirena">
+                            </a>
+                            <div class="caption">
+                                <h3>MR-100 standartinė lauko sirena</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <a class="lightbox" href="{{ '/images/01Sirenos/02-lauko-sirena-mr100-2.jpg' }}">
+                                <img src="{{ '/images/01Sirenos/02-lauko-sirena-mr100-2.jpg' }}"
+                                     class="rounded img-fluid" alt="MR-100 standartinė lauko sirena">
+                            </a>
+                            <div class="caption">
+                                <h3>MR-100 standartinė lauko sirena</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <a class="lightbox" href="{{ '/images/01Sirenos/03-lauko-sirena-odisey-1.jpg' }}">
+                                <img src="{{ '/images/01Sirenos/03-lauko-sirena-odisey-1.jpg' }}"
+                                     class="rounded img-fluid"
+                                     alt="'Odyssey' (D.Britanija) lauko sirena">
+                            </a>
+                            <div class="caption">
+                                <h3>"Odyssey" (D. Britanija) lauko sirena</h3>
+                                <p class="text-in-caption">Gražus dizainas, gerai atrodo ant vieno aukšto namo</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <a class="lightbox" href="{{ '/images/01Sirenos/04-lauko-sirena-odisey-2.jpg' }}">
+                                <img src="{{ '/images/01Sirenos/04-lauko-sirena-odisey-2.jpg' }}"
+                                     class="rounded img-fluid"
+                                     alt="'Odyssey' (D. Britanija) lauko sirena">
+                            </a>
+                            <div class="caption">
+                                <h3>4. “Odyssey” (D. Britanija) lauko sirena</h3>
+                                <p>Gražus dizainas, gerai atrodo ant vieno aukšto namo</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <a class="lightbox" href="{{ '/images/01Sirenos/05-lauko-sirna-blade-1.jpg' }}">
+                                <img src="{{ '/images/01Sirenos/05-lauko-sirna-blade-1.jpg' }}"
+                                     class="rounded img-fluid" alt="'Blade'(Italija) lauko
+                                sirena">
+                            </a>
+                            <div class="caption">
+                                <h3>"Blade" (Italija) lauko sirena</h3>
+                                <p>Gražus dizainas, gerai atrodo ant kelių aukštų namo</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <a class="lightbox" href="{{ '/images/01Sirenos/06-lauko-sirna-blade-2.jpg' }}">
+                                <img src="{{ '/images/01Sirenos/06-lauko-sirna-blade-2.jpg' }}"
+                                     class="rounded img-fluid" alt="'Blade'(Italija) lauko sirena ">
+                            </a>
+                            <div class="caption">
+                                <h3>"Blade" (Italija) lauko sirena</h3>
+                                <p>Gražus dizainas, gerai atrodo ant kelių aukštų namo</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

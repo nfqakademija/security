@@ -1,0 +1,143 @@
+{#<?php#}
+{#session_start();#}
+{#if (!isset($_SESSION['username'])) {#}
+    {#header("Location: /login.php");#}
+    {#die();#}
+{#}#}
+
+{#?>#}
+{% extends "::base.html.twig" %}
+
+{% block title %}Homepage - {{ parent() }}{% endblock %}
+{% block content %}
+
+<section class="container-fluid">
+    <h1 class="section-title text-center">Užsakymų peržiūra</h1>
+    <form action="" class="search-form" method="post">
+        <div class="row">
+            <div class="form-group col-xs-10">
+                <input type="text" class="form-control" name="search" id="search"
+                       placeholder="Paieška pagal vardą">
+            </div>
+            <div class="form-group col-xs-6">
+                <button class="btn btn-primary"><i class="fa fa-search" aria-hidden="true"></i></button>
+            </div>
+        </div>
+    </form>
+
+    {#<?php#}
+
+        {#$sqlPagination = "SELECT COUNT(*) FROM Orders";#}
+
+        {#$stmtPagination = $db->prepare($sqlPagination);#}
+    {#$stmtPagination->execute();#}
+    {#$numberOfResults = reset($stmtPagination->fetch());#}
+
+    {#if (!isset($_GET['page'])) {#}
+    {#$page = 1;#}
+    {#} else {#}
+    {#$page = $_GET['page'];#}
+    {#}#}
+
+    {#$resultsPerPage = 15;#}
+    {#$startingResult = ($page - 1) * $resultsPerPage;#}
+    {#$numberOfPages = ceil($numberOfResults / $resultsPerPage);#}
+
+
+    {#$sql = "SELECT * FROM Orders";#}
+    {#$searchActive = false;#}
+    {#if (isset($_POST['search'])) {#}
+    {#$searchActive = true;#}
+    {#$sql .= " WHERE client_name LIKE ?";#}
+    {#}#}
+
+    {#if (isset($_GET['sorted']) && $_GET['sorted'] == 'asc') {#}
+    {#$sql .= " ORDER BY service";#}
+    {#} elseif (isset($_GET['sorted']) && $_GET['sorted'] == 'desc') {#}
+    {#$sql .= " ORDER BY service DESC";#}
+    {#}#}
+
+    {#if (isset($_GET['date']) && $_GET['date'] == 'asc') {#}
+    {#$sql .= " ORDER BY order_date";#}
+    {#} elseif (isset($_GET['date']) && $_GET['date'] == 'desc') {#}
+    {#$sql .= " ORDER BY order_date DESC";#}
+    {#}#}
+
+
+    {#$sql .= " LIMIT " . $startingResult . ',' . $resultsPerPage;#}
+    {#$stmt = $db->prepare($sql);#}
+    {#$params = [];#}
+    {#if (isset($_POST['search'])) {#}
+    {#$params[] = '%' . $_POST['search'] . '%';#}
+    {#}#}
+    {#$stmt->execute($params);#}
+
+    {#?>#}
+
+    <div style="overflow-x:auto;">
+        <table id="orders">
+            <tr>
+                <th>Data<br>
+                    <?php if (!isset($_POST['search'])) { ?>
+                    <a class='pull-right' href='management.php?date=asc'>Seniausi</a>
+                    <a href='management.php?date=desc'>Naujausi</a>
+                    <?php } ?>
+                </th>
+                <th>Vardas</th>
+                <th>Telefono numeris</th>
+                <th>El. paštas</th>
+                <th>Paslauga
+                    <?php if (!isset($_POST['search'])) { ?>
+
+                    <a class='pull-right' href='management.php?sorted=desc'><i class="fa fa-sort-alpha-desc"
+                                                                               aria-hidden="true"></i></a>
+                    <a class='pull-right' href='management.php?sorted=asc'><i class="fa fa-sort-alpha-asc"
+                                                                              aria-hidden="true"></i></a>
+                    <?php } ?>
+                </th>
+                <th>Papildoma informacija</th>
+            </tr>
+
+            <?php
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+
+            echo "<tr>
+                <td>{$row['order_date']}</td>
+                <td>{$row['client_name']}</td>
+                <td>{$row['client_phone']}</td>
+                <td>{$row['client_email']}</td>
+                <td>{$row['service']}</td>
+
+
+                <td>{$row['information']}</td>
+            </tr>";
+            }
+
+            echo "</table>
+    </div>";
+
+    $additionalParams = '';
+    if (isset($_GET['sorted'])) {
+    $additionalParams .= '&sorted=' . $_GET['sorted'];
+    } elseif (isset($_GET['date'])) {
+    $additionalParams .= '&date=' . $_GET['date'];
+    }
+    if (!isset($_POST['search'])) {
+    echo '<ul class="pagination pagination-lg pull-right">';
+        for ($page = 1; $page <= $numberOfPages; $page++) {
+        echo '<li class="page-item"><a  class="page-link" href="management.php?page=' . $page . $additionalParams . '">' . $page . '</a></li>';
+        }
+        echo '</ul>';
+    }
+
+    ?>
+
+</section>
+{% endblock %}
+
+<!--    //                  ";  $fieldValue = '';-->
+<!--    //                    if ($row['service']) {-->
+<!--    //                        $fieldValue = implode(", ", unserialize($row['service']));-->
+<!--    //                    }-->
+<!--    //-->
+<!--    //                    echo "<td>{$fieldValue}</td>-->
