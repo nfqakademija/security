@@ -9,9 +9,8 @@
 {% block content %}
 
     <main class="container">
-        <div id="fb-root"></div>
+        {{ fburl|raw }}
 
-        <div class="fb-login-button" data-width="500" data-max-rows="2" data-size="medium" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="true"></div>
         <section id="about-me">
             <div class="row">
                 <div class="col-md-8">
@@ -132,14 +131,19 @@
                     </div>
                     {{ form_errors(form) }}
                     {% if form.vars.valid and form.vars.submitted %}
-                        <p class="lead">Jūsų užklausa išsiųsta</p>
+                        {#<div class="alter alert-success">Jūsų užklausa išsiųsta</div>#}
+                        <div class="alert alert-success text-center" role="alert">
+                            <i>Jūsų užklausa išsiųsta</i>
+                        </div>
                     {% endif %}
                     {% if not form.vars.valid %}
                         {# Loop through every form item #}
                         {% for child in form.children %}
                             {# Display the errors of the form item #}
                             {% for error in child.vars.errors %}
-                                <p>{{ "Neteisingia įvesti duomenys" }}</p>
+                                <div class="alert alert-danger text-center" role="alert">
+                                    <i>Neteisingai įvesti duomenys</i>
+                                </div>
                             {% endfor %}
                         {% endfor %}
                     {% endif %}
@@ -157,13 +161,13 @@
                 </form>
             </div>
 
-        <div class="col-md-6 col-xs-12">
-            <h1 class="section-title text-center">Kontaktai</h1>
-            <p class="contact ml-5"><i class="fa fa-user" aria-hidden="true"></i>Sergey Kruglov</p>
-            <p class="contact ml-5"><i class="fa fa-phone-square" aria-hidden="true"></i>+370 628 63546</p>
-            <p class="contact ml-5"><i class="fa fa-envelope" aria-hidden="true"></i>sergej.kruglov@gmail.com</p>
+            <div class="col-md-6 col-xs-12">
+                <h1 class="section-title text-center">Kontaktai</h1>
+                <p class="contact ml-5"><i class="fa fa-user" aria-hidden="true"></i>Sergey Kruglov</p>
+                <p class="contact ml-5"><i class="fa fa-phone-square" aria-hidden="true"></i>+370 628 63546</p>
+                <p class="contact ml-5"><i class="fa fa-envelope" aria-hidden="true"></i>sergej.kruglov@gmail.com</p>
 
-        </div>
+            </div>
         </div>
         </div>
 
