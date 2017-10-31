@@ -123,9 +123,6 @@
                         {{ form_widget(form.email, { 'attr': {'class': 'col-sm-12 form-group', 'name': 'client_email', 'placeholder': 'Jūsų el. paštas'} }) }}
                     </div>
                     <div class="row">
-
-                    </div>
-                    <div class="row">
                         <label>Papildoma informacija ir pageidavimai</label>
                         {{ form_widget(form.message, { 'attr': {'class': 'col-sm-12 form-group', 'name': 'information', 'placeholder': 'Galite nurodyti objekto tipą (namas, butas, sandelys, ofisas, lauko teritorija), kambarių/patalpų skaičių.'} }) }}
                     </div>
@@ -158,7 +155,7 @@
                         {#{% if (isset(errRecaptcha)) { %}#}
                         {#{%  errRecaptcha; } %}#}
                     </div>
-                </form>
+                    {{ form_end(form) }}
             </div>
 
             <div class="col-md-6 col-xs-12">
@@ -168,9 +165,8 @@
                 <p class="contact ml-5"><i class="fa fa-envelope" aria-hidden="true"></i>sergej.kruglov@gmail.com</p>
 
             </div>
-        </div>
-        </div>
 
+        </div>
     </main>
 
 {% endblock %}

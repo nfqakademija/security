@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Contact;
 use AppBundle\Helper\FBHelper;
 use Faker\Provider\Text;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -79,6 +80,29 @@ class HomeController extends Controller
             'fburl' => $fburl
         ]);
     }
+
+    /**
+     * @Route("/test", name="test")
+     */
+    public function testAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $contact = new Contact();
+        $contact->setContactName('Test');
+        $contact->setMessage('test test');
+        $contact->setContactPhone('+376847687');
+        $contact->setContactEmail('test@test.com');
+        // tells Doctrine you want to (eventually) save the Product (no queries yet)
+        $em->persist($contact);
+
+        // actually executes the queries (i.e. the INSERT query)
+        $em->flush();
+
+        return new Response("works");
+    }
+
+
 }
 
 
