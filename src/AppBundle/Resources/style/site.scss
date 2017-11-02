@@ -1,0 +1,294 @@
+body {
+    font-family: 'Unna', serif;
+    background: #ffffff;
+}
+
+header {
+    background-image: url('/images/twocameras.jpg');
+    background-size: cover;
+    height: 700px;
+    width: 100%;
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+
+.main-header {
+    color: white;
+    padding-top: 19%;
+    font-size: 5em;
+    font-weight: bold;
+    text-shadow: 2px -1px 8px rgba(150, 150, 150, 1);
+}
+.second-header {
+    font-size: 2em;
+    font-weight: bolder;
+}
+
+.portrait {
+    height: 400px;
+    width: 275px;
+    margin-top: 30px;
+}
+#pricing-tables {
+    /*padding-top: 50px;*/
+    margin-bottom: 50px;
+}
+@media(max-width: 1200px) {
+    .col-with-padding-top {
+        margin-top: 20px;
+    }
+}
+.small-image {
+    width: 130px;
+    height: 130px;
+    box-shadow: none;
+}
+.one-small-image {
+    height: 130px;
+    box-shadow: none;
+}
+.fa {
+    margin: 0 7px;
+}
+.fa.fa-search {
+margin-right: 0px;
+}
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    font-size: 0.9em;
+}
+.price, .name {
+    background-color: #efe6d8;
+}
+.phone {
+    margin-left: 47px;
+}
+.submit-button {
+    background-color: #e6e1e1;
+}
+.login-form {
+    text-align: center;
+    margin: 10% auto;
+    width: 40%;
+}
+.checkbox {
+    font-style: italic;
+}
+
+.search-form {
+    margin-left: 14px;
+}
+.pagination {
+    margin-top: 10px;
+    margin-right: 24%;
+}
+a.page-link {
+    background-color: #cfd8f1;
+}
+a.page-link:hover {
+    background-color: #C8F1E7;
+}
+a.nav-link {
+    text-transform: uppercase;
+    font-size: 1.4em;
+    font-weight: bold;
+    color: white!important;
+}
+
+nav {
+    background-color: transparent;
+    transition: background-color 0.3s linear 0s;
+}
+
+.navbar-inverse {
+    background-color:dimgray;
+    transition: background-color 0.3s linear 0s;
+}
+
+.navbar-inverse a.nav-link:hover {
+    color: lightgray !important;
+}
+
+button.navbar-toggler {
+    background-color: white;
+}
+
+h2.text-center {
+    margin-top: 50px;
+    margin-bottom: 40px;
+}
+h2.text-center:first-child {
+    margin-top: 90px;
+}
+hr {
+    border: 0;
+    height: 1px;
+    background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
+    background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
+    background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
+    background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
+}
+
+img {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+ul {
+    list-style: none;
+}
+li.description {
+    list-style: disc;
+}
+.alert-info {
+    background-color: #e9eff1;
+    border-color: #dae3e4;
+}
+/*.absolute-image {*/
+    /*position: absolute;*/
+    /*top: 25%;*/
+    /*left: 25%;*/
+/*}*/
+
+/*.first-image {*/
+    /*position: relative;*/
+/*}*/
+
+.gallery-container h1 {
+    text-align: center;
+    margin-top: 70px;
+    font-family: 'Droid Sans', sans-serif;
+    font-weight: bold;
+    color: #58595a;
+}
+
+.gallery-container p.page-description {
+    text-align: center;
+    margin: 30px auto;
+    font-size: 18px;
+    color: #85878c;
+}
+
+.tz-gallery {
+    padding: 40px;
+}
+
+.tz-gallery .thumbnail {
+    padding: 0;
+    margin-bottom: 30px;
+    background-color: #fff;
+    border-radius: 4px;
+    border: none;
+    transition: 0.15s ease-in-out;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.06);
+}
+
+.tz-gallery .thumbnail:hover {
+    transform: translateY(-10px) scale(1.02);
+}
+
+.tz-gallery .lightbox img {
+    border-radius: 4px 4px 0 0;
+}
+
+.tz-gallery .caption{
+    padding: 26px 30px;
+    text-align: center;
+}
+
+.tz-gallery .caption h3 {
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 0;
+}
+
+.tz-gallery .caption p {
+    font-size: 14px;
+    color: #7b7d7d;
+    margin: 0;
+}
+
+.baguetteBox-button {
+    background-color: transparent !important;
+}
+
+/* Style the tab */
+div.tab {
+    margin-top: 80px;
+
+}
+
+/* Style the buttons inside the tab */
+div.tab button {
+    display: block;
+    background-color: inherit;
+    color: black;
+    padding: 15px 16px;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 1em;
+    font-weight: bolder;
+
+}
+
+/* Change background color of buttons on hover */
+div.tab button:hover {
+    background-color: #dbe6e3;
+}
+
+/* Create an active/current "tab button" class */
+div.tab button.active {
+    background-color: #d6d6d6;
+}
+.header-in-tab {
+    margin-top: 90px;
+}
+/* Style the tab content */
+.tabcontent {
+    margin-top: 90px;
+    padding: 0px 12px;
+    border-left: none;
+    display: none;
+}
+.tabcontent.active {
+    display: block;
+}
+
+/*.paslaugos {*/
+    /*background-image: url('images/twocameras.jpg');*/
+/*}*/
+.link-to-services {
+    color: black;
+}
+.link-to-services:hover {
+    text-decoration: none;
+    color: darkgray;
+}
+.link-to-other-services {
+    font-size: 1.2em;
+    margin-top: 20px;
+}
+i.fa {
+    margin-left: 5px;
+}
+.list-group-item.name {
+    background-color: #efe6d8;
+}
+.contact {
+    font-size: 1.3em;
+}
+footer {
+    margin-top: 30px;
+}
+.lead {
+    text-align: justify;
+    font-size: 1.20rem;;
+}

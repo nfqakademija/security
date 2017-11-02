@@ -7,7 +7,6 @@ use AppBundle\Helper\FBHelper;
 use Faker\Provider\Text;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -29,7 +28,8 @@ class HomeController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $session = new Session();
+
+        $session = $this->get('session');
         $fbhelper = new FBHelper();
         $provider = $fbhelper->getFacebookApiClient();
         // If we don't have an authorization code then get one
@@ -66,7 +66,7 @@ class HomeController extends Controller
             $data = $form->getData();
 
             $message = (new \Swift_Message('Hello Email'))
-                ->setFrom($data['email'])
+                ->setFrom($data['client_email'])
                 ->setTo('some@email.com')
                 ->setBody(
                     $form->getData()['message'],
@@ -93,16 +93,13 @@ class HomeController extends Controller
         $contact->setMessage('test test');
         $contact->setContactPhone('+376847687');
         $contact->setContactEmail('test@test.com');
-        // tells Doctrine you want to (eventually) save the Product (no queries yet)
+        // tells Doctrine you want to (eventually) save the Contact (no queries yet)
         $em->persist($contact);
-
         // actually executes the queries (i.e. the INSERT query)
         $em->flush();
 
         return new Response("works");
     }
-
-
 }
 
 

@@ -20,4 +20,3 @@
 /bin/*
 .env
 npm-debug.log
-.idea

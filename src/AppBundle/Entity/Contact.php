@@ -20,7 +20,7 @@ class Contact
     private $contactId;
 
     /**
-     * @ORM\Column(type="string", length=100, name="contact_name")
+     * @ORM\Column(type="integer", length=1000, name="contact_name")
      */
     private $contactName;
 
@@ -144,9 +144,6 @@ class Contact
     {
         $this->orderDate = $orderDate;
     }
-
-
-
 
 }
 

@@ -6,6 +6,7 @@
 {#{% formValid = false %}#}
 {#{% errRecaptcha = "reCaptcha sako, kad Jus esate robotas :)"} %}#}
 
+
 {% block content %}
 
     <main class="container">
@@ -29,7 +30,7 @@
                         Jumis artimiausiu metu.</p>
                 </div>
                 <div class="col-md-4">
-                    <img class="img portrait float-right" src="{{ '/images/portrait.jpg' }}" alt="Mano nuotrauka">
+                    <img class="img portrait float-right" src="{{ asset('images/portrait.jpg') }}" alt="Mano nuotrauka">
                 </div>
             </div>
         </section>
@@ -48,13 +49,13 @@
                             <i class="fa fa-check"></i>Stacionarus užpuolimo mygtukas arba mygtukų komplektas<br>
                             <i class="fa fa-check"></i>Stacionarus užpuolimo pedalas<br>
                             <i class="fa fa-check"></i>Nešiojamas bevielis užpuolimo mygtukas<br>
-                            <a class="link-to-services pull-right" href="paslaugos.php#attack">Plačiau<i
+                            <a class="link-to-services pull-right" href="paslaugos#attack">Plačiau<i
                                         class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                         </li>
                         <li class="list-group-item price text-center">Kaina: <i>nuo 70 Eur</i></li>
                         <li class="list-group-item text-center">
-                            <img src="{{ '/images/1.jpg' }}" class="img img-fluid text-center small-image">
-                            <img src="{{ '/images/2.jpg' }}" class="img img-fluid text-center small-image">
+                            <img src="{{ asset('images/1.jpg') }}" class="img img-fluid text-center small-image">
+                            <img src="{{ asset('images/2.jpg') }}" class="img img-fluid text-center small-image">
                         </li>
                     </ul>
                 </div>
@@ -75,7 +76,7 @@
                         </li>
                         <li class="list-group-item price text-center">Kaina: <i>nuo 200 Eur</i></li>
                         <li class="list-group-item text-center">
-                            <img src="{{ '/images/8.jpg' }}" class="img img-fluid one-small-image">
+                            <img src="{{ asset('images/8.jpg') }}" class="img img-fluid one-small-image">
                         </li>
                     </ul>
                 </div>
@@ -90,27 +91,27 @@
                             <i class="fa fa-check"></i>Slaptos vidaus kameros<br>
                             <i class="fa fa-check"></i>Lauko kameros<br>
                             <i class="fa fa-check"></i>Valdomos lauko kameros su sekimo funkcija ir nakties režimu<br>
-                            <a class="link-to-services pull-right" href="paslaugos.php">Plačiau<i
+                            <a class="link-to-services pull-right" href="/paslaugos">Plačiau<i
                                         class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                         </li>
                         <li class="list-group-item price text-center"> Kaina: <i>nuo 600 Eur</i></li>
                         <li class="list-group-item text-center">
-                            <img src="{{ '/images/3.jpg' }}" class="img img-fluid small-image">
-                            <img src="{{ '/images/4.jpg' }}" class="img img-fluid small-image">
+                            <img src="{{ asset('images/3.jpg') }}" class="img img-fluid small-image">
+                            <img src="{{ asset('images/4.jpg') }}" class="img img-fluid small-image">
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="row pull-right">
                 <div class="col-md-12 link-to-other-services">
-                    <a href="paslaugos.php">Kitos paslaugos</a>
+                    <a href="/paslaugos">Kitos paslaugos</a>
                 </div>
             </div>
         </section>
 
         <div class="row">
             <div class="col-md-6 col-xs-12">
-                <form id="captcha-form" action="#captcha-form" method="post">
+                <form id="captcha-form" action="#captcha-form" method="post" data-parsley-validate>
                     <h1 class="section-title">Turite klausimų? Susisiekite!</h1>
 
                     <div class="row">

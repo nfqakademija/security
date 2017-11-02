@@ -8,7 +8,7 @@ var uglify  = require('gulp-uglify');
 var dir = {
     assets: './src/AppBundle/Resources/',
     dist: './web/',
-    npm: './node_modules/',
+    npm: './node_modules/'
 };
 
 gulp.task('sass', function() {
@@ -22,7 +22,9 @@ gulp.task('scripts', function() {
     gulp.src([
             //Third party assets
             dir.npm + 'jquery/dist/jquery.min.js',
-            dir.npm + 'bootstrap-sass/assets/javascripts/bootstrap.min.js',
+            dir.npm + 'bootstrap/js/bootstrap.js',
+            dir.npm + 'parsleyjs/dist/parsley.js',
+            dir.npm + 'parsleyjs/dist/i18n/lt.js',
 
             // Main JS file
             dir.assets + 'scripts/main.js'
@@ -46,4 +48,4 @@ gulp.task('fonts', function() {
         .pipe(gulp.dest(dir.dist + 'fonts'));
 });
 
-gulp.task('default', ['sass', 'scripts', 'fonts', 'images']);
+gulp.task('default', ['sass', 'scripts', 'images']);

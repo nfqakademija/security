@@ -8,6 +8,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\User;
 use AppBundle\Helper\FBHelper;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Response;
@@ -47,8 +48,10 @@ class PagesController extends Controller
     public function showUserPage()
     {
         $session = new Session();
+
         $fbhelper = new FBHelper();
         $provider = $fbhelper->getFacebookApiClient();
+
 // Check given state against previously stored one to mitigate CSRF attack
         if (empty($_GET['state']) || ($_GET['state'] !== $session->get('oauth2state'))) {
 
@@ -80,6 +83,18 @@ class PagesController extends Controller
             // Failed to get user details
             exit('Oh dear...');
         }
+
+//        $em = $this->getDoctrine()->getManager();
+//
+//        $user1 = new User();
+//        $user1->setUserName('');
+//        $user1->setUserEmail('');
+//
+//        // tells Doctrine you want to (eventually) save the Contact (no queries yet)
+//        $em->persist($user);
+//        // actually executes the queries (i.e. the INSERT query)
+//        $em->flush();
+
         return $this->render('AppBundle:Pages:user.html.twig', [
             'userImage' => $userImage,
             'userName' => $userName

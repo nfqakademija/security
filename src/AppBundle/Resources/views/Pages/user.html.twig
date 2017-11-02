@@ -1,7 +1,6 @@
-{% extends "::admin.html.twig" %}
+{% extends "::base.html.twig" %}
 
 {% block title %}Homepage - {{ parent() }}{% endblock %}
-
 
 
 {% block content %}
@@ -9,6 +8,7 @@
         <hr>
         <div class="row">
             <div class="col-md-4">
+                {{ user }}
                 {{ userImage|raw }}
             </div>
             <div class="col-md-4">
@@ -16,6 +16,4 @@
             </div>
         </div>
     </div>
-
-
 {% endblock %}
