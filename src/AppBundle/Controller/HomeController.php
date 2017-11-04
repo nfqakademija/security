@@ -4,7 +4,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Contact;
 use AppBundle\Helper\FBHelper;
-use Faker\Provider\Text;
+use Symfony\Bridge\Monolog\Handler\SwiftMailerHandler;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -38,20 +38,20 @@ class HomeController extends Controller
         ]);
         $session->set('oauth2state', $provider->getState());
 
-        $fburl = '<a href="' . $authUrl . '"><img src="/images/download.png"></a>';
+        $fburl = '<a href="' . $authUrl . '"><img class="fb-login" src="/images/download.png"></a>';
 
 
         $form = $this->createFormBuilder()
-            ->add('name', TextType::class, array(
+            ->add('contact_name', TextType::class, array(
                 'required' => true
             ))
-            ->add('phone', TextType::class, array(
+            ->add('contact_phone', TextType::class, array(
                 'required' => true,
                 'constraints' => new Regex([
                     'pattern' => "/^\+?[\d\s]+$/"
                 ])
             ))
-            ->add('email', EmailType::class, array(
+            ->add('contact_email', EmailType::class, array(
                 'required' => false
             ))
             ->add('message', TextareaType::class, array(
@@ -62,17 +62,20 @@ class HomeController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $formData = $request->request->get('form');
+            $contact = new Contact();
 
-            $data = $form->getData();
+            $contact->setContactName($formData['contact_name']);
+            $contact->setContactPhone($formData['contact_phone']);
+            $contact->setContactEmail($formData['contact_email']);
+            $contact->setMessage($formData['message']);
 
-            $message = (new \Swift_Message('Hello Email'))
-                ->setFrom($data['client_email'])
-                ->setTo('some@email.com')
-                ->setBody(
-                    $form->getData()['message'],
-                    'text/html'
-                );
-            $this->get('mailer')->send($message);
+            $em = $this->getDoctrine()->getManager();
+            // tells Doctrine you want to (eventually) save the Contact (no queries yet)
+            $em->persist($contact);
+            // actually executes the queries (i.e. the INSERT query)
+            $em->flush();
+
         }
 
         return $this->render('AppBundle:Home:index.html.twig', [
@@ -81,25 +84,19 @@ class HomeController extends Controller
         ]);
     }
 
-    /**
-     * @Route("/test", name="test")
-     */
-    public function testAction(Request $request)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $contact = new Contact();
-        $contact->setContactName('Test');
-        $contact->setMessage('test test');
-        $contact->setContactPhone('+376847687');
-        $contact->setContactEmail('test@test.com');
-        // tells Doctrine you want to (eventually) save the Contact (no queries yet)
-        $em->persist($contact);
-        // actually executes the queries (i.e. the INSERT query)
-        $em->flush();
-
-        return new Response("works");
-    }
+//    /**
+//     * @Route("/test", name="test")
+//     */
+//    public function testAction(Request $request)
+//    {
+////        var_dump($request->request->get('form', 'xxx'));
+//
+//
+//
+//
+//
+//        return new Response('<h1>Ačiū, Jūsų užklausa išsiųsta</h1>');
+//    }
 }
 
 

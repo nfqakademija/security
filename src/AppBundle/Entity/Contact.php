@@ -20,7 +20,7 @@ class Contact
     private $contactId;
 
     /**
-     * @ORM\Column(type="integer", length=1000, name="contact_name")
+     * @ORM\Column(type="string", length=1000, name="contact_name")
      */
     private $contactName;
 

@@ -116,16 +116,16 @@
 
                     <div class="row">
                         {{ form_row(form._token) }}
-                        {{ form_widget(form.name, { 'attr': {'class': 'col-md-6 form-group', 'name': 'client_name', 'placeholder': 'Jūsų vardas'} }) }}
-                        {{ form_widget(form.phone, { 'attr': {'class': 'col-md-5 form-group float-right phone', 'name': 'client_phone','placeholder': 'Telefono numeris'} }) }}
+                        {{ form_widget(form.contact_name, { 'attr': {'class': 'col-md-6 form-group', 'name': 'contact_name', 'placeholder': 'Jūsų vardas'} }) }}
+                        {{ form_widget(form.contact_phone, { 'attr': {'class': 'col-md-5 form-group float-right phone', 'name': 'contact_phone','placeholder': 'Telefono numeris'} }) }}
                     </div>
 
                     <div class="row">
-                        {{ form_widget(form.email, { 'attr': {'class': 'col-sm-12 form-group', 'name': 'client_email', 'placeholder': 'Jūsų el. paštas'} }) }}
+                        {{ form_widget(form.contact_email, { 'attr': {'class': 'col-sm-12 form-group', 'name': 'contact_email', 'placeholder': 'Jūsų el. paštas'} }) }}
                     </div>
                     <div class="row">
                         <label>Papildoma informacija ir pageidavimai</label>
-                        {{ form_widget(form.message, { 'attr': {'class': 'col-sm-12 form-group', 'name': 'information', 'placeholder': 'Galite nurodyti objekto tipą (namas, butas, sandelys, ofisas, lauko teritorija), kambarių/patalpų skaičių.'} }) }}
+                        {{ form_widget(form.message, { 'attr': {'class': 'col-sm-12 form-group', 'name': 'message', 'placeholder': 'Galite nurodyti objekto tipą (namas, butas, sandelys, ofisas, lauko teritorija), kambarių/patalpų skaičių.'} }) }}
                     </div>
                     {{ form_errors(form) }}
                     {% if form.vars.valid and form.vars.submitted %}

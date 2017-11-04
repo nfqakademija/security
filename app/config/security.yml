@@ -1,24 +1,110 @@
+## To get started with security, check out the documentation:
+## http://symfony.com/doc/current/book/security.html
+#security:
+#
+#    # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
+#    providers:
+#      app:
+#      id: app.user_provider
+#
+#    firewalls:
+#        # disables authentication for assets and the profiler, adapt it according to your needs
+#        dev:
+#            pattern: ^/(_(profiler|wdt)|css|images|js)/
+#            security: false
+#
+#            encoders:
+#                AppBundle\Entity\User: bcrypt
+#
+#            role_hierarchy
+##         access_control:
+# access_control:
+#- {path: ^ admin, role: ROLE_ADMIN}
+#- { path}
+# form-login:
+# login-path: /login
+# check_path: /login
+# use_referer: true
+# provider: app
+# logout:
+#        main:
+#            anonymous: ~
+#            # activate different ways to authenticate
+#
+#            # http_basic: ~
+#            # http://symfony.com/doc/current/book/security.html#a-configuring-how-your-users-will-authenticate
+#
+#            # form_login: ~
+#            # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
+#
+#
+## To get started with security, check out the documentation:
+## https://symfony.com/doc/current/security.html
+#security:
+#
+#    # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
+#    providers:
+#        in_memory:
+#            memory: ~
+#
+#    firewalls:
+#        # disables authentication for assets and the profiler, adapt it according to your needs
+#        dev:
+#            pattern: ^/(_(profiler|wdt)|css|images|js)/
+#            security: false
+#
+#        main:
+#            anonymous: ~
+#            # activate different ways to authenticate
+#
+#            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
+#            #http_basic: ~
+#
+#            # https://symfony.com/doc/current/security/form_login_setup.html
+#            #form_login: ~
+
 # To get started with security, check out the documentation:
 # http://symfony.com/doc/current/book/security.html
 security:
 
-    # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
-    providers:
-        in_memory:
-            memory: ~
-
-    firewalls:
-        # disables authentication for assets and the profiler, adapt it according to your needs
-        dev:
-            pattern: ^/(_(profiler|wdt)|css|images|js)/
-            security: false
-
-        main:
-            anonymous: ~
-            # activate different ways to authenticate
-
-            # http_basic: ~
-            # http://symfony.com/doc/current/book/security.html#a-configuring-how-your-users-will-authenticate
-
-            # form_login: ~
-            # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
+#    # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
+#    firewalls:
+#        # disables authentication for assets and the profiler, adapt it according to your needs
+#        dev:
+#            pattern: ^/(_(profiler|wdt)|css|images|js)/
+#            security: false
+#
+#        main:
+#            anonymous: ~
+#            pattern: ^/
+##            form_login:
+##                provider: fos_userbundle
+##                csrf_token_generator: security.csrf.token_manager
+#                # if you are using Symfony < 2.8, use the following config instead:
+#                # csrf_provider: form.csrf_provider
+#
+#            logout:       true
+#            anonymous:    true
+#    encoders:
+#        FOS\UserBundle\Model\UserInterface: bcrypt
+#        AppBundle\Entity\User: bcrypt
+#
+#
+#    role_hierarchy:
+#        ROLE_ADMIN:       ROLE_USER
+#        ROLE_SUPER_ADMIN: ROLE_ADMIN
+#        ROLE_COACH:       ROLE_COACH
+#
+#    providers:
+#             app:
+#             id: app.user_provider
+#
+#    access_control:
+#        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+#        - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+#        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+#        - { path: ^/administrator/, role: ROLE_ADMIN }
+#        - { path: ^/attend, role: ROLE_USER }
+#        - { path: ^/unattend, role: ROLE_USER }
+#        - { path: ^/createEvent, role: ROLE_COACH }
+#        - { path: ^/myEvents, role: ROLE_USER }
