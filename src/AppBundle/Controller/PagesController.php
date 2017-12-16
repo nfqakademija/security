@@ -48,7 +48,6 @@ class PagesController extends Controller
     public function showUserPage()
     {
         $session = new Session();
-
         $fbhelper = new FBHelper();
         $provider = $fbhelper->getFacebookApiClient();
 
@@ -70,30 +69,32 @@ class PagesController extends Controller
         try {
 
             // We got an access token, let's now get the user's details
-            /* @var \League\OAuth2\Client\Provider\FacebookUser $user */
-            $user = $provider->getResourceOwner($token);
+            /* @var \League\OAuth2\Client\Provider\FacebookUser $facebookUser */
+            $facebookUser = $provider->getResourceOwner($token);
 
             // Use these details to create a new profile
 //            printf('Hello, %s!', $user->getName());
-            $userName = $user->getName();
-            $userImage = '<img src="' . $user->getPictureUrl() . '">';
+            $userName = $facebookUser->getName();
+            $userImage = '<img src="' . $facebookUser->getPictureUrl() . '">';
+
+            $em = $this->getDoctrine()->getManager();
+
+            $user = new User();
+            $user->setUserName($facebookUser->getName());
+            $user->setUserEmail($facebookUser->getEmail());
+
+            // tells Doctrine you want to (eventually) save the Contact (no queries yet)
+            $em->persist($user);
+            // actually executes the queries (i.e. the INSERT query)
+            $em->flush();
+
 
         } catch (\Exception $e) {
 
             // Failed to get user details
-            exit('Oh dear...');
+            echo('Oh dear...');
         }
-
-//        $em = $this->getDoctrine()->getManager();
-//
-//        $user1 = new User();
-//        $user1->setUserName('');
-//        $user1->setUserEmail('');
-//
-//        // tells Doctrine you want to (eventually) save the Contact (no queries yet)
-//        $em->persist($user);
-//        // actually executes the queries (i.e. the INSERT query)
-//        $em->flush();
+        echo "https://www.facebook.com/logout.php?access_token=$token";
 
         return $this->render('AppBundle:Pages:user.html.twig', [
             'userImage' => $userImage,
